@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+     <link href="/css/app.css" rel="stylesheet" type="text/css">
+     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="container">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <ul class="nav">
+          </ul>
+        </div>
+      </div>
+    <form name="movieForm" method="post" action="/getDetails">
+        Movie Url : <input name="movie_url" value="http://www.imdb.com/title/tt1375666/" ><br>
+        <button type="submit" class="btn btn-primary">SUBMIT</button>
+    </form>
+    <br><br><br>
+
+    <% if(imdb_obj){ %>
+      <h3> MOVIE DETAILS </h3>
+      <span> Movie Title: </span> <%= imdb_obj.movie_title %> <br>
+      <span> Plot Summary: </span> <%= imdb_obj.plot_summary %> <br>
+      <span> IMDB Community Rating: </span> <%= imdb_obj.imdb_community_rating %> <br>
+      <span> Director: </span> <%= imdb_obj.director %> <br>
+      <span> Writer: </span> <%= imdb_obj.writer %> <br>
+      <span> Stars: </span> 
+        <% for(var i=0; i < imdb_obj.stars.length; i++){ %> 
+            <span> <%= imdb_obj.stars[i] %> , </span>
+    <% } } %>   
+
+    </div>
+
+
+        <script src="/lib/bootstrap.min.js"></script>
+        
+</body>
+</html>
